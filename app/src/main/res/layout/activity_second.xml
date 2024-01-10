@@ -18,10 +18,11 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:visibility="visible"
-        app:chipSpacing="8dp" >
+        app:chipSpacing="16dp" >
 
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/elektro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Elektrotechnik und Informationstechnik"
@@ -34,6 +35,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/bwl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BWL"
@@ -46,6 +48,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Informatik"
@@ -57,6 +60,7 @@
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         <com.google.android.material.chip.Chip
+            android:id="@+id/maschinenbau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Maschinenbau"
@@ -68,6 +72,7 @@
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         <com.google.android.material.chip.Chip
+            android:id="@+id/wing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Wirtschaftsingenieurwesen"
