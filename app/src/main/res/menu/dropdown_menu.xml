@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/menu/dropdown_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/semester_1"
+        android:title="Semester 1" />
+
+    <item
+        android:id="@+id/semester_2"
+        android:title="Semester 2" />
+
+    <!-- Füge weitere Menüoptionen hinzu, falls erforderlich -->
+
+</menu>
