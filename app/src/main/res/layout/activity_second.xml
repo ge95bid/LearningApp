@@ -25,6 +25,7 @@
             android:id="@+id/elektro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="Elektrotechnik und Informationstechnik"
             android:textColor="@color/white"
             android:background="@color/blue"
