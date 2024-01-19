@@ -72,7 +72,7 @@ public class QuizActivity extends AppCompatActivity {
 
                     showCorrectAnswer();
 
-                    setResult(RESULT_CANCELED);
+                    setResult(RESULT_FIRST_USER);
 
                     finish();
                 }

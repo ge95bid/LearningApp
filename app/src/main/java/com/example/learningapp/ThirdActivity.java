@@ -18,13 +18,13 @@ public class ThirdActivity extends AppCompatActivity {
     Button button4;
     Button button5;
 
+    Button reset;
+
     private static final String PREFS_NAME = "prefs";
-    private static final String BUTTON_STATE_KEY_1 = "buttonState";
-    private static final String BUTTON_STATE_KEY_2 = "buttonState";
-    private static final String BUTTON_STATE_KEY_3 = "buttonState";
-    private static final String BUTTON_STATE_KEY_4 = "buttonState";
-    private static final String BUTTON_STATE_KEY_5 = "buttonState";
+    private static final String BUTTON_STATE_KEY_PREFIX = "button_state_";
     @SuppressLint("MissingInflatedId")
+
+    //Erstellt das View
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +44,32 @@ public class ThirdActivity extends AppCompatActivity {
 
 
         loadButtonState(button1,1);
-        //loadButtonState(button2,2);
-        //loadButtonState(button3,3);
-        //loadButtonState(button4,4);
-        //loadButtonState(button5,5);
+        loadButtonState(button2,2);
+        loadButtonState(button3,3);
+        loadButtonState(button4,4);
+        loadButtonState(button5,5);
+
+        reset = findViewById(R.id.reset);
+        //Reseted alle Buttons
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.apply();
+                button1.setBackgroundColor(getResources().getColor(R.color.blue));
+                button2.setBackgroundColor(getResources().getColor(R.color.blue));
+                button3.setBackgroundColor(getResources().getColor(R.color.blue));
+                button4.setBackgroundColor(getResources().getColor(R.color.blue));
+                button5.setBackgroundColor(getResources().getColor(R.color.blue));
+            }
+        });
 
 
     }
 
+    //Erstellt den ButtonListener
     public void createButtonListener(Button button, final int questionnumber)
     {
         button.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +109,7 @@ public class ThirdActivity extends AppCompatActivity {
         });
     }
 
+    //Nach Abschluss des Quizes wird HandleResult aufgerufen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -121,8 +140,10 @@ public class ThirdActivity extends AppCompatActivity {
         }
     }
 
+    //Legt fest, ob der Button grün oder rot wird
     public void handleResult(int resultCode, Button button, int number)
     {
+        Toast.makeText(this, "handleResult", Toast.LENGTH_SHORT).show();
         if (resultCode == RESULT_OK)
         {
             button.setBackgroundColor(getResources().getColor(R.color.green));
@@ -130,75 +151,76 @@ public class ThirdActivity extends AppCompatActivity {
         }
         else if (resultCode == RESULT_CANCELED)
         {
-            button.setBackgroundColor(getResources().getColor(R.color.red));
-            saveButtonState(number,2);
+            button.setBackgroundColor(getResources().getColor(R.color.blue));
+            saveButtonState(number,3);
         }
         else
         {
-            saveButtonState(number,3);
+            button.setBackgroundColor(getResources().getColor(R.color.red));
+            saveButtonState(number,2);
         }
 
 
     }
 
+    //Die Farbe des Buttons wird gespeichert
     public void saveButtonState(final int number, int state)
     {
-        Toast.makeText(this, "Wurde gespeichert", Toast.LENGTH_SHORT).show();
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
+
+        String buttonStateKey = getButtonStateKey(number);
+
         if(number==1) {
-            editor.putInt(BUTTON_STATE_KEY_1, state);
+            editor.putInt(buttonStateKey, state);
         }
-        if(number==2) {
-            editor.putInt(BUTTON_STATE_KEY_2, state);
+        else if(number==2) {
+            editor.putInt(buttonStateKey, state);
+            Toast.makeText(this, "2 Wurde gespeichert", Toast.LENGTH_SHORT).show();
         }
-        if(number==3) {
-            editor.putInt(BUTTON_STATE_KEY_3, state);
+        else if(number==3) {
+            editor.putInt(buttonStateKey, state);
         }
-        if(number==4) {
-            editor.putInt(BUTTON_STATE_KEY_4, state);
+        else if(number==4) {
+            editor.putInt(buttonStateKey, state);
         }
-        if(number==5) {
-            editor.putInt(BUTTON_STATE_KEY_5, state);
+        else if(number==5) {
+            editor.putInt(buttonStateKey, state);
         }
         editor.apply();
     }
 
+    //Die Farbe des Buttons wird geladen
     public void loadButtonState(Button button, int number)
     {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
 
-        int savedButtonState = -1;
-        if(number==1) {
-            savedButtonState = prefs.getInt(BUTTON_STATE_KEY_1, -1);
-        }
-        else if(number==2) {
-            savedButtonState = prefs.getInt(BUTTON_STATE_KEY_2, -1);
-        }
-        else if(number==3) {
-            savedButtonState = prefs.getInt(BUTTON_STATE_KEY_3, -1);
-        }
-        else if(number==4) {
-            savedButtonState = prefs.getInt(BUTTON_STATE_KEY_4, -1);
-        }
-        else if(number==5) {
-            savedButtonState = prefs.getInt(BUTTON_STATE_KEY_5, -1);
-        }
+        int savedButtonState = prefs.getInt(getButtonStateKey(number), -1);
+
 
         if(savedButtonState != -1)
         {
             if (savedButtonState == 1)
             {
+                Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
                 button.setBackgroundColor(getResources().getColor(R.color.green));
             }
             else if (savedButtonState == 2)
             {
+                Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
                 button.setBackgroundColor(getResources().getColor(R.color.red));
             }
-            else
+            else if (savedButtonState == 3)
             {
+                Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                button.setBackgroundColor(getResources().getColor(R.color.blue));
             }
         }
+    }
+
+    //Der Key für die Farbe des Buttons wird erstellt
+    private String getButtonStateKey(int number) {
+        return BUTTON_STATE_KEY_PREFIX + "_" + number;
     }
 
 }
