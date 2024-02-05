@@ -22,7 +22,9 @@
         android:layout_below="@id/quiztext"
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:singleLine="false"
+        app:flow_wrapMode="aligned">
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"

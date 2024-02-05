@@ -29,6 +29,7 @@ public class QuizActivity extends AppCompatActivity {
         quiz = (Quiztemplate) getIntent().getSerializableExtra("Question 1");
 
         TextView questiontext = findViewById(R.id.quiztext);
+
         questiontext.setText(quiz.getQuestiontext());
 
         button1 = findViewById(R.id.answer1);
@@ -69,10 +70,9 @@ public class QuizActivity extends AppCompatActivity {
                 else
                 {
                     chip.setChipBackgroundColorResource(R.color.red);
+                    setResult(RESULT_FIRST_USER);
 
                     showCorrectAnswer();
-
-                    setResult(RESULT_FIRST_USER);
 
                     finish();
                 }
@@ -121,7 +121,7 @@ public class QuizActivity extends AppCompatActivity {
                         break;
                 }
             }
-        }, 1000);
+        }, 5000);
 
     }
 
