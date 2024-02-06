@@ -27,6 +27,7 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         quiz = (Quiztemplate) getIntent().getSerializableExtra("Question 1");
+        quiz.randomnize();
 
         TextView questiontext = findViewById(R.id.quiztext);
 
