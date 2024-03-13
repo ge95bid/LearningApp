@@ -18,93 +18,70 @@
         android:minHeight="80dp"
         android:maxHeight="80dp"
 
-        android:text="Quiztext could not be loaded"
+        android:text="Quiztext could not be loaded "
         android:textAlignment="center"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:maxLines="2"
-        android:minLines="1"/>
+        android:maxLines="3"
+        android:minLines="2"/>
 
-    <com.google.android.material.chip.ChipGroup
+    <TextView
+        android:id="@+id/answer1"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/chipGroup"
-        android:layout_below="@id/quiztext"
-        android:layout_marginTop="60dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:flow_wrapMode="aligned">
+        android:minLines="3"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="240dp"
+        app:layout_constraintTop_toBottomOf="@+id/quiztext"
+        android:text="Answer 1 could not be loaded shbahsna bashbahbah"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corners_for_buttons"
+        android:textSize="20dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/answer1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:minWidth="250dp"
-            android:minHeight="60dp"
-            android:padding="30dp"
-            android:text="Answer 1"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
+    <TextView
+        android:id="@+id/answer2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minLines="3"
+        android:gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="350dp"
+        android:text="Answer 1"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corners_for_buttons"
+        android:textSize="20dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/answer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:minWidth="250dp"
-            android:minHeight="60dp"
-            android:padding="30dp"
-            android:text="Answer 2"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
+    <TextView
+        android:id="@+id/answer3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minLines="3"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="460dp"
+        android:text="Answer 1"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corners_for_buttons"
+        android:textSize="20dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/answer3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:minWidth="250dp"
-            android:minHeight="60dp"
-            android:padding="30dp"
-            android:text="Answer 3"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/answer4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:minWidth="250dp"
-            android:minHeight="60dp"
-            android:padding="30dp"
-            android:text="Answer 4"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
-
-    </com.google.android.material.chip.ChipGroup>
+    <TextView
+        android:id="@+id/answer4"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minLines="3"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="580dp"
+        android:text="Answer 1"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corners_for_buttons"
+        android:textSize="20dp" />
 
 
 </RelativeLayout>

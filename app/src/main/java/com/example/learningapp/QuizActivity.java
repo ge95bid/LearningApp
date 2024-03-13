@@ -14,14 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.learningapp.Quiztemplate;
 import com.google.android.material.chip.Chip;
 
+import org.w3c.dom.Text;
+
 
 public class QuizActivity extends AppCompatActivity {
 
     private Quiztemplate quiz;
-    private Chip button1;
-    private Chip button2;
-    private Chip button3;
-    private Chip button4;
+    private TextView button1;
+    private TextView button2;
+    private TextView button3;
+    private TextView button4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,27 +39,27 @@ public class QuizActivity extends AppCompatActivity {
 
         button1 = findViewById(R.id.answer1);
         button1.setText(quiz.getOption()[0]);
-        button1.setChipBackgroundColorResource(R.color.blue);
+        button1.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
         setChipListener(button1,0);
 
         button2 = findViewById(R.id.answer2);
         button2.setText(quiz.getOption()[1]);
-        button2.setChipBackgroundColorResource(R.color.blue);
+        button2.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
         setChipListener(button2,1);
 
         button3 = findViewById(R.id.answer3);
         button3.setText(quiz.getOption()[2]);
-        button3.setChipBackgroundColorResource(R.color.blue);
+        button3.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
         setChipListener(button3,2);
 
         button4 = findViewById(R.id.answer4);
         button4.setText(quiz.getOption()[3]);
-        button4.setChipBackgroundColorResource(R.color.blue);
+        button4.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
         setChipListener(button4,3);
 
     }
 
-    public void setChipListener(Chip chip, final int option)
+    public void setChipListener(TextView chip, final int option)
     {
         //chip.setChipBackgroundColorResource(R.color.green);
         chip.setOnClickListener(new View.OnClickListener() {
@@ -66,28 +68,28 @@ public class QuizActivity extends AppCompatActivity {
                 Toast.makeText(QuizActivity.this, "Funktioniert", Toast.LENGTH_SHORT).show();
                 if(checkAnswer(option))
                 {
-                    chip.setChipBackgroundColorResource(R.color.green);
+                    chip.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                     setResult(RESULT_OK);
                     finish();
                 }
                 else
                 {
-                    chip.setChipBackgroundColorResource(R.color.red);
+                    chip.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.red)));
                     setResult(RESULT_FIRST_USER);
 
                     switch(getCorrectAnswer())
                     {
                         case 0:
-                            button1.setChipBackgroundColorResource(R.color.green);
+                            button1.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                             break;
                         case 1:
-                            button2.setChipBackgroundColorResource(R.color.green);
+                            button2.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                             break;
                         case 2:
-                            button3.setChipBackgroundColorResource(R.color.green);
+                            button3.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                             break;
                         case 3:
-                            button4.setChipBackgroundColorResource(R.color.green);
+                            button4.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                             break;
                     }
 
@@ -131,16 +133,16 @@ public class QuizActivity extends AppCompatActivity {
                 switch(correctanswer)
                 {
                     case 0:
-                        button1.setChipBackgroundColorResource(R.color.green);
+                        button1.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                         break;
                     case 1:
-                        button2.setChipBackgroundColorResource(R.color.green);
+                        button2.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                         break;
                     case 2:
-                        button3.setChipBackgroundColorResource(R.color.green);
+                        button3.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                         break;
                     case 3:
-                        button4.setChipBackgroundColorResource(R.color.green);
+                        button4.getBackground().setTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
                         break;
                 }
             }

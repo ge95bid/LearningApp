@@ -50,7 +50,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
-                i.putExtra("Modul", "maschinenbau");
+                i.putExtra("Modul", "Maschinenbau");
                 startActivity(i);
             }
         });
@@ -58,7 +58,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
-                i.putExtra("Modul", "wing");
+                i.putExtra("Modul", "Wirtschaftsingenieurwesen");
                 startActivity(i);
             }
         });
@@ -66,7 +66,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SecondActivity.this, ThirdActivity.class);
-                i.putExtra("Modul", "winf");
+                i.putExtra("Modul", "Wirtschaftsinformatik");
                 startActivity(i);
             }
         });
