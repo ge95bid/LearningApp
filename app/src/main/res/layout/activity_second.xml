@@ -35,7 +35,7 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <!--<com.google.android.material.chip.Chip
+        <com.google.android.material.chip.Chip
             android:id="@+id/bwl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,8 +47,7 @@
             android:textAlignment="center"
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
--->
-        <!--<com.google.android.material.chip.Chip
+        <com.google.android.material.chip.Chip
             android:id="@+id/info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,6 +84,7 @@
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         <com.google.android.material.chip.Chip
+            android:id="@+id/winf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Wirtschaftsinformatik"
@@ -95,6 +95,18 @@
             android:textAlignment="center"
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
--->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/addmodule"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:text="+"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
     </com.google.android.material.chip.ChipGroup>
 </ScrollView>

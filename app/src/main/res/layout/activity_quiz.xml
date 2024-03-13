@@ -5,15 +5,26 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:id="@+id/quiztext"
-        android:text="Quiztext could not be loaded"
-        android:textSize="20dp"
-        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_corner"
-        android:layout_marginLeft="30dp"/>
+        android:minWidth="355dp"
+        android:minHeight="80dp"
+        android:maxHeight="80dp"
+
+        android:text="Quiztext could not be loaded"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:maxLines="2"
+        android:minLines="1"/>
 
     <com.google.android.material.chip.ChipGroup
         android:layout_height="wrap_content"
@@ -23,57 +34,75 @@
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        app:singleLine="false"
         app:flow_wrapMode="aligned">
 
         <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/answer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="280dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:minWidth="250dp"
+            android:minHeight="60dp"
+            android:padding="30dp"
             android:text="Answer 1"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:padding="30dp"
-            android:clickable="true"/>
+            android:textSize="24dp" />
+
         <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/answer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="280dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:minWidth="250dp"
+            android:minHeight="60dp"
+            android:padding="30dp"
             android:text="Answer 2"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:padding="30dp"
-            android:clickable="true"/>
+            android:textSize="24dp" />
+
         <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/answer3"
-            android:text="Answer 3"
-            android:textColor="@color/white"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="280dp"
-            android:layout_marginBottom="20dp"
-            android:padding="30dp"
-            android:clickable="true"/>
-        <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/answer4"
-            android:text="Answer 4"
-            android:textColor="@color/white"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="280dp"
             android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:minWidth="250dp"
+            android:minHeight="60dp"
             android:padding="30dp"
-            android:clickable="true"/>
+            android:text="Answer 3"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/answer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="280dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:minWidth="250dp"
+            android:minHeight="60dp"
+            android:padding="30dp"
+            android:text="Answer 4"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
 
     </com.google.android.material.chip.ChipGroup>
 

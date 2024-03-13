@@ -1,6 +1,11 @@
 package com.example.learningapp;
 
+import static java.lang.reflect.Array.*;
+
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Quiztemplate implements Serializable{
@@ -8,45 +13,14 @@ public class Quiztemplate implements Serializable{
     private String[] option;
     private int answer;
 
+    private static String correctAnswer;
+
     Quiztemplate(String questiontext, String[] option, int answerN) {
         this.questiontext = questiontext;
         this.option = option;
         this.answer = answerN;
+        correctAnswer = option[answerN];
 
-        Random rand = new Random();
-        int random = rand.nextInt(4);
-        String temp[] = option.clone();
-        int d = 0;
-
-        for(int i=0;i<option.length;i++)
-        {
-            d = i+random;
-            if(d>3)
-            {
-                d = d-4;
-                option[d] = temp[i];
-            }
-            else
-            {
-                option[d] = temp[i];
-            }
-        }
-
-        switch(random)
-        {
-            case 0:
-                answer = 0;
-                break;
-            case 1:
-                answer = 1;
-                break;
-            case 2:
-                answer = 2;
-                break;
-            case 3:
-                answer = 3;
-                break;
-        }
 
     }
 
@@ -73,39 +47,35 @@ public class Quiztemplate implements Serializable{
 
     public void randomnize()
     {
+        correctAnswer = option[answer];
         Random rand = new Random();
-        int random = rand.nextInt(4);
-        String temp[] = option.clone();
-        int d = 0;
+        int dr = 4;
+        int random = rand.nextInt(dr);
+        ArrayList<String> temp = new ArrayList<>(Arrays.asList(option));
 
         for(int i=0;i<option.length;i++)
         {
-            d = i+random;
-            if(d>3)
+            option[i] = temp.get(random);
+            System.out.println(option[i]);
+            temp.remove(random);
+            dr--;
+            if(option[i].equals(correctAnswer))
             {
-                d = d-4;
-                option[d] = temp[i];
+                answer = i;
+            }
+            if(dr!=0)
+            {
+                random = rand.nextInt(dr);
             }
             else
             {
-                option[d] = temp[i];
+                //option[i+1] = temp.get(0);
+                break;
             }
-        }
 
-        switch(random)
-        {
-            case 0:
-                answer = 0;
-                break;
-            case 1:
-                answer = 1;
-                break;
-            case 2:
-                answer = 2;
-                break;
-            case 3:
-                answer = 3;
-                break;
+
+
+
         }
     }
 

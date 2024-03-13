@@ -1,4 +1,6 @@
 package com.example.learningapp;
+import static java.lang.Thread.sleep;
+
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
@@ -73,9 +75,29 @@ public class QuizActivity extends AppCompatActivity {
                     chip.setChipBackgroundColorResource(R.color.red);
                     setResult(RESULT_FIRST_USER);
 
-                    showCorrectAnswer();
+                    switch(getCorrectAnswer())
+                    {
+                        case 0:
+                            button1.setChipBackgroundColorResource(R.color.green);
+                            break;
+                        case 1:
+                            button2.setChipBackgroundColorResource(R.color.green);
+                            break;
+                        case 2:
+                            button3.setChipBackgroundColorResource(R.color.green);
+                            break;
+                        case 3:
+                            button4.setChipBackgroundColorResource(R.color.green);
+                            break;
+                    }
 
-                    finish();
+                    try {
+                        sleep(500);
+                        finish();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+
                 }
             }
         });
@@ -122,7 +144,7 @@ public class QuizActivity extends AppCompatActivity {
                         break;
                 }
             }
-        }, 5000);
+        }, 50);
 
     }
 
