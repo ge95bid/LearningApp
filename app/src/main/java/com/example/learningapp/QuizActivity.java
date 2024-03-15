@@ -93,12 +93,7 @@ public class QuizActivity extends AppCompatActivity {
                             break;
                     }
 
-                    try {
-                        sleep(500);
-                        finish();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    finish();
 
                 }
             }

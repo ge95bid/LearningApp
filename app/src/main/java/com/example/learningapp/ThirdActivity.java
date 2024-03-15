@@ -63,10 +63,10 @@ public class ThirdActivity extends AppCompatActivity {
         modul.setText(name);
 
 
-        //loadQuestions();
+        loadQuestions();
 
         if(quiz[0] == null) {
-            //Toast.makeText(this, "Quiz wurde erstellt", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Quiz wurde erstellt", Toast.LENGTH_SHORT).show();
             //int value = name.compareTo("Analysis");
             //Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
             String value = modul.getText().toString();
@@ -111,19 +111,24 @@ public class ThirdActivity extends AppCompatActivity {
         }
 
         length = quiz.length;
-
+        int minus = 0;
         for(int i = 0;i<length;i++)
         {
+
             if(quiz[i] != null)
             {
                 question_button_number++;
-                String text = "Q: " + (i+1);
+                String text = "Q: " + (i+1-minus);
                 createButton(i,text);
                 buttons[i] = findViewById(i);
                 createButtonListener(buttons[i],i);
                 createLongButtonListener(buttons[i],i);
-                saveButtonState(i,3); //Probe
+                //saveButtonState(i,3); //Probe
                 loadButtonState(buttons[i],i);
+            }
+            else
+            {
+                minus++;
             }
 
         }
@@ -308,10 +313,20 @@ public class ThirdActivity extends AppCompatActivity {
                 alert.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        quiz[questionnumber] = quiz[question_button_number-1];
-                        buttons[questionnumber].setText("Q: " + (questionnumber+1));
-                        buttons[questionnumber].setBackgroundColor(getResources().getColor(R.color.blue));
+                        GridLayout layout = findViewById(R.id.gridLayout);
+                        //buttons[questionnumber+1].setText("Q: " + (questionnumber));
+                        for(int i=questionnumber;i<length-1;i++)
+                        {
+                            if(buttons[i] != null)
+                            {
+                                buttons[i].setText("Q: " + (i));
+                            }
+                            //quiz[i] = null;
+                        }
+                        quiz[questionnumber] = null;
                         question_button_number--;
+                        layout.removeView(buttons[questionnumber]);
+                        saveQuestions();
                     }
                 });
                 AlertDialog dialog = alert.create();
