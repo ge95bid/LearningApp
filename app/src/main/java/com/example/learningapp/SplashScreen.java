@@ -16,7 +16,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        RelativeLayout relativeLayout = findViewById(R.id.splash);
+       // RelativeLayout relativeLayout = findViewById(R.id.splash);
 
         // Starten Sie eine neue Activity nach einer Verzögerung von 1 Sekunde
         new Handler().postDelayed(new Runnable() {
