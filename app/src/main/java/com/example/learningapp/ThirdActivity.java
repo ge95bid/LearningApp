@@ -214,7 +214,7 @@ public class ThirdActivity extends AppCompatActivity {
         alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(question_button_number==8)
+                if(question_button_number == 500)
                 {
                     return;
                 }
