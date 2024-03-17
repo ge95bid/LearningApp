@@ -7,18 +7,27 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton imagebutton = findViewById(R.id.frag);
-        imagebutton.setOnClickListener(new View.OnClickListener() {
+        ImageButton imageButtonBuch = findViewById(R.id.buch);
+        ImageButton imageButtonFrag = findViewById(R.id.frag);
+
+        imageButtonBuch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(MainActivity.this,SecondActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NFCActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButtonFrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(i);
             }
         });

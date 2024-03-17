@@ -9,14 +9,18 @@
     android:background="@color/white">
 
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="Hallo"
         android:scaleType="centerCrop"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-37dp"></ImageView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"></ImageView>-->
 
     <ImageButton
         android:id="@+id/buch"
@@ -47,6 +51,36 @@
         tools:layout_editor_absoluteX="249dp"
         tools:layout_editor_absoluteY="206dp"
         android:contentDescription="hallo"/>
+
+    <!--        app:layout_constraintEnd_toEndOf="@+id/background"-->
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="85dp"
+        android:text="Quiz"
+        android:textColor="#102522"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frag" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
+        android:text="NFC"
+        android:textAlignment="center"
+        android:textColor="#102522"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buch" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
