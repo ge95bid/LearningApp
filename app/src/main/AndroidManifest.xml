@@ -49,5 +49,11 @@
             tools:ignore="WrongManifestParent">
 
         </activity>
+
+        <activity android:name=".RandomQuizActivity"
+            android:exported="true"
+            tools:ignore="WrongManifestParent">
+        </activity>
+
     </application>
 </manifest>

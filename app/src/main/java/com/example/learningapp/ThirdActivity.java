@@ -26,28 +26,16 @@ import java.util.List;
 
 public class ThirdActivity extends AppCompatActivity {
     Intent i;
-
     String name;
-
     Button reset;
-
     private String PREFS_NAME = "prefs";
     private String BUTTON_STATE_KEY_PREFIX = "button_state_";
-
     private String QUESTION_KEY_PREFIX = "question_";
-
     private Quiztemplate[] quiz = new Quiztemplate[500];
-
     private Button[] buttons = new Button[500];
-
     static int length;
-
     int question_button_number;
-
-
-
     //@SuppressLint("MissingInflatedId")
-
     //Erstellt das View
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +49,19 @@ public class ThirdActivity extends AppCompatActivity {
 
         TextView modul = findViewById(R.id.thirdbutton);
         modul.setText(name);
+
+
+        Button randomQuizButton = findViewById(com.example.learningapp.R.id.randomquiz);
+
+        randomQuizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this, RandomQuizActivity.class);
+                // Pass the subject name (Modul) to the RandomQuizActivity
+                intent.putExtra("Modul", name);
+                startActivity(intent);
+            }
+        });
 
 
         //loadQuestions();
@@ -358,7 +359,6 @@ public class ThirdActivity extends AppCompatActivity {
                 }
                 EditText question = alertLayout.findViewById(R.id.questiontext);
                 question.setHint("Enter your Question:");
-
                 EditText option1 = alertLayout.findViewById(R.id.answer1);
                 option1.setHint("Enter your first and correct answer: ");
                 EditText option2 = alertLayout.findViewById(R.id.answer2);

@@ -5,167 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/plus"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/white"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Random Quiz"
-        android:id="@+id/randomquiz"
-        android:layout_margin="150dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/white"/>
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="reset"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentLeft="true"
-        android:textColor="@color/white"/>
 
+    <!-- Analysis TextView -->
+    <TextView
+        android:id="@+id/thirdbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="2"
+        android:orientation="horizontal"
+        android:text="Analysis 1"
+        android:textColor="@color/blue"
+        android:textSize="41sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- ScrollView -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="0dp">
+        android:layout_below="@id/thirdbutton"
+        android:layout_above="@id/buttons_layout"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/thirdbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:maxLines="2"
-                android:orientation="horizontal"
-                android:text="Analysis 1"
-                android:textColor="@color/blue"
-                android:textSize="41sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.11" />
-
+            <!-- GridLayout for Buttons -->
             <GridLayout
                 android:id="@+id/gridLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="150dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
                 android:columnCount="4"
-                android:visibility="visible"
-                app:chipSpacing="60dp"
+                android:layout_margin="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.286">
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!--                <Button-->
-                <!--                    android:id="@+id/B1"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    android:width="80dp"-->
-                <!--                    android:height="80dp"-->
-                <!--                    android:text="1"-->
-                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintVertical_bias="0.286" />-->
-
-                <!--                <Button-->
-                <!--                    android:id="@+id/B2"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    android:width="80dp"-->
-                <!--                    android:height="80dp"-->
-                <!--                    android:text="2"-->
-                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintVertical_bias="0.286" />-->
-
-                <!--                <Button-->
-                <!--                    android:id="@+id/B3"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    android:width="80dp"-->
-                <!--                    android:height="80dp"-->
-                <!--                    android:text="3"-->
-                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintVertical_bias="0.286" />-->
-
-                <!--                <Button-->
-                <!--                    android:id="@+id/B4"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    android:width="80dp"-->
-                <!--                    android:height="80dp"-->
-                <!--                    android:text="4"-->
-                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintVertical_bias="0.286" />-->
-
-                <!--                <Button-->
-                <!--                    android:id="@+id/B5"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    android:width="80dp"-->
-                <!--                    android:height="80dp"-->
-                <!--                    android:text="5"-->
-                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
-                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintVertical_bias="0.286" />-->
-
-
+                <!-- Buttons can be added dynamically here -->
             </GridLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <!-- Layout for Buttons -->
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <!-- Plus Button -->
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textColor="@color/white"
+            android:layout_margin="16dp"/>
+
+        <!-- Random Quiz Button -->
+        <Button
+            android:id="@+id/randomquiz"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Random Quiz"
+            android:textColor="@color/white"
+            android:layout_margin="16dp"/>
+
+        <!-- Reset Button -->
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="reset"
+            android:textColor="@color/white"
+            android:layout_margin="16dp"/>
+
+    </LinearLayout>
+
 </RelativeLayout>
