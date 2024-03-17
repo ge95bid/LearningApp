@@ -63,7 +63,7 @@ public class ThirdActivity extends AppCompatActivity {
         modul.setText(name);
 
 
-        //loadQuestions();
+        loadQuestions();
 
         if(quiz[0] == null) {
             Toast.makeText(this, "Quiz wurde erstellt", Toast.LENGTH_SHORT).show();
@@ -322,18 +322,23 @@ public class ThirdActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         GridLayout layout = findViewById(R.id.gridLayout);
                         //buttons[questionnumber+1].setText("Q: " + (questionnumber));
-                        for(int i=questionnumber;i<length-1;i++)
+                        int n = 1;
+                        quiz[questionnumber] = null;
+                        for(int i=0;i<buttons.length-1;i++)
                         {
-                            if(buttons[i] != null)
+
+                            if(quiz[i] != null)
                             {
-                                buttons[i].setText("Q: " + (i));
+                                buttons[i].setText("Q: " + (n));
+                                n++;
                             }
                             //quiz[i] = null;
                         }
-                        quiz[questionnumber] = null;
+
                         question_button_number--;
                         layout.removeView(buttons[questionnumber]);
                         saveQuestions();
+                        //onCreate(null);
                     }
                 });
                 AlertDialog dialog = alert.create();

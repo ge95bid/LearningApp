@@ -30,7 +30,7 @@ public class NFCActivity extends AppCompatActivity {
     PendingIntent pendingIntent;
     IntentFilter writingTagFilters[];
     boolean writeMode;
-    Tag myTag;
+    static Tag myTag;
     Context context;
     TextView edit_message;
     TextView nfc_contents;
@@ -82,6 +82,7 @@ public class NFCActivity extends AppCompatActivity {
                 || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
                 || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
             Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+            Toast.makeText(context, "NFC Tag Detected!", Toast.LENGTH_SHORT).show();
             NdefMessage[] msgs = null;
             if (rawMsgs != null) {
                 msgs = new NdefMessage[rawMsgs.length];
@@ -139,8 +140,15 @@ public class NFCActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         setIntent(intent);
         readFromIntent(intent);
+
+
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+            Toast.makeText(context, "OnNewIntent", Toast.LENGTH_SHORT).show();
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        }
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+            // Handhabung des NFC-Tags
+            Toast.makeText(context, "Tag discovered", Toast.LENGTH_SHORT).show();
         }
     }
 
