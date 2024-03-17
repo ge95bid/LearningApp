@@ -7,11 +7,11 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Learnie"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningApp">
-        <activity android:name = ".MainActivity"
+        <activity android:name = ".SplashScreen"
             android:exported="true"
             tools:ignore="WrongManifestParent">
             <intent-filter>
@@ -19,36 +19,30 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name = ".MainActivity"
+            android:exported="true"
+            tools:ignore="WrongManifestParent">
+
         </activity>
 
         <activity android:name = ".SecondActivity"
             android:exported="true"
             tools:ignore="WrongManifestParent">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name = ".ThirdActivity"
             android:exported="true"
             tools:ignore="WrongManifestParent">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name = ".QuizActivity"
             android:exported="true"
             tools:ignore="WrongManifestParent">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 </manifest>

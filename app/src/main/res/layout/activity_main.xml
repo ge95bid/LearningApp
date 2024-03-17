@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
 
     <ImageView
@@ -14,14 +15,13 @@
         android:layout_height="match_parent"
         android:contentDescription="Hallo"
         android:scaleType="centerCrop"
-        android:src="@drawable/wallpaper"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-37dp"></ImageView>
 
     <ImageButton
         android:id="@+id/buch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintVertical_bias="0.4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,15 +29,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@null"
-        android:src="@drawable/buch"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="206dp"
+        android:src="@drawable/icon5"
         android:contentDescription="test"/>
 
     <ImageButton
         android:id="@+id/frag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintVertical_bias="0.4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@null"
-        android:src="@drawable/fragezeichen"
+        android:src="@drawable/icon3"
         tools:layout_editor_absoluteX="249dp"
         tools:layout_editor_absoluteY="206dp"
         android:contentDescription="hallo"/>
