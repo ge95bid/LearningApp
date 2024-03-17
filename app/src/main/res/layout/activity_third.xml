@@ -16,6 +16,16 @@
         android:layout_alignParentRight="true"
         android:textColor="@color/white"/>
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random Quiz"
+        android:id="@+id/randomquiz"
+        android:layout_margin="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"/>
+    <Button
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +39,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout"
@@ -40,12 +54,12 @@
                 android:id="@+id/thirdbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="2"
                 android:orientation="horizontal"
                 android:text="Analysis 1"
-                android:gravity="center"
                 android:textColor="@color/blue"
                 android:textSize="41sp"
-                android:maxLines="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -75,80 +89,80 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.286">
 
-<!--                <Button-->
-<!--                    android:id="@+id/B1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="12dp"-->
-<!--                    android:width="80dp"-->
-<!--                    android:height="80dp"-->
-<!--                    android:text="1"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.139"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.286" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/B1"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginRight="12dp"-->
+                <!--                    android:width="80dp"-->
+                <!--                    android:height="80dp"-->
+                <!--                    android:text="1"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintVertical_bias="0.286" />-->
 
-<!--                <Button-->
-<!--                    android:id="@+id/B2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="12dp"-->
-<!--                    android:width="80dp"-->
-<!--                    android:height="80dp"-->
-<!--                    android:text="2"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.139"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.286" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/B2"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginRight="12dp"-->
+                <!--                    android:width="80dp"-->
+                <!--                    android:height="80dp"-->
+                <!--                    android:text="2"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintVertical_bias="0.286" />-->
 
-<!--                <Button-->
-<!--                    android:id="@+id/B3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="12dp"-->
-<!--                    android:width="80dp"-->
-<!--                    android:height="80dp"-->
-<!--                    android:text="3"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.139"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.286" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/B3"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginRight="12dp"-->
+                <!--                    android:width="80dp"-->
+                <!--                    android:height="80dp"-->
+                <!--                    android:text="3"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintVertical_bias="0.286" />-->
 
-<!--                <Button-->
-<!--                    android:id="@+id/B4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="12dp"-->
-<!--                    android:width="80dp"-->
-<!--                    android:height="80dp"-->
-<!--                    android:text="4"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.139"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.286" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/B4"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginRight="12dp"-->
+                <!--                    android:width="80dp"-->
+                <!--                    android:height="80dp"-->
+                <!--                    android:text="4"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintVertical_bias="0.286" />-->
 
-<!--                <Button-->
-<!--                    android:id="@+id/B5"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="12dp"-->
-<!--                    android:width="80dp"-->
-<!--                    android:height="80dp"-->
-<!--                    android:text="5"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.139"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.286" />-->
+                <!--                <Button-->
+                <!--                    android:id="@+id/B5"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginRight="12dp"-->
+                <!--                    android:width="80dp"-->
+                <!--                    android:height="80dp"-->
+                <!--                    android:text="5"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.139"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintVertical_bias="0.286" />-->
 
 
             </GridLayout>
