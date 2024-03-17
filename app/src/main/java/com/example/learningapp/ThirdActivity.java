@@ -36,9 +36,9 @@ public class ThirdActivity extends AppCompatActivity {
 
     private String QUESTION_KEY_PREFIX = "question_";
 
-    private Quiztemplate[] quiz = new Quiztemplate[8];
+    private Quiztemplate[] quiz = new Quiztemplate[500];
 
-    private Button[] buttons = new Button[8];
+    private Button[] buttons = new Button[500];
 
     static int length;
 
@@ -63,7 +63,7 @@ public class ThirdActivity extends AppCompatActivity {
         modul.setText(name);
 
 
-        loadQuestions();
+        //loadQuestions();
 
         if(quiz[0] == null) {
             Toast.makeText(this, "Quiz wurde erstellt", Toast.LENGTH_SHORT).show();
@@ -77,6 +77,7 @@ public class ThirdActivity extends AppCompatActivity {
                 quiz[2] = new Quiztemplate("Was ist der Hauptsatz der Differential- und Integralrechnung?", new String[]{"Der Fläche unter dem Graphen.", "Fläche über dem Graphen.", "Umkehrung der Integration.", "Dem Integral der Funktion."}, 2);
                 quiz[3] = new Quiztemplate("Wie lautet die Definition des Grenzwerts einer Funktion?", new String[]{"Der Wert, den die Funktion an einer Stelle annimmt.", "Der größte Funktionswert.", "Die kleinste Funktionsstelle.", "Die Annäherung der Funktionswerte an einen bestimmten Punkt."}, 3);
                 quiz[4] = new Quiztemplate("Welche Funktion ist auf dem Intervall [0, ∞) nicht beschränkt?", new String[]{"sin(x)", "cos(x)", "e^x", "ln(x)"}, 2);
+
             } else if (value.equals("BWL")) {
                 quiz[0] = new Quiztemplate("Was beschreibt der Begriff 'ROI' in der Betriebswirtschaftslehre?", new String[]{"Return on Investment", "Rate of Inflation", "Revenue of Interest", "Risk of Investment"}, 0);
                 quiz[1] = new Quiztemplate("Welche der folgenden Funktionen ist eine zentrale Aufgabe des Controllings in Unternehmen?", new String[]{"Produktentwicklung", "Personalrekrutierung", "Kostenmanagement", "Verkaufsförderung"}, 2);
@@ -160,15 +161,21 @@ public class ThirdActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences prefs = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.clear();
-                editor.apply();
+                //SharedPreferences prefs = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+                //SharedPreferences.Editor editor = prefs.edit();
+                //editor.clear();
+                //editor.apply();
+
+                GradientDrawable shape =  new GradientDrawable();
+                shape.setCornerRadius( 20 );
+                shape.setColor(getResources().getColor(R.color.blue));
+
                 for(int i=0;i<length;i++)
                 {
                     if(buttons[i] != null)
                     {
-                        buttons[i].setBackgroundColor(getResources().getColor(R.color.blue));
+                        buttons[i].setBackground(shape);
+                        saveButtonState(i,3);
                     }
                 }
                 /*button1.setBackgroundColor(getResources().getColor(R.color.blue));
