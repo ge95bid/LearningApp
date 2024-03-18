@@ -33,5 +33,15 @@ public class SplashScreen extends AppCompatActivity {
 
         //overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
+
+    public void onPause() {
+        super.onPause();
+        finish();
+    }
+}
 
