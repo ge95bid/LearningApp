@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:id="@+id/editTextTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Neue Aufgabe hinzufügen"
+        android:textColor="@android:color/black"
+        android:textColorHint="#80000000"
+        android:backgroundTint="@android:color/black"
+        android:layout_marginBottom="16dp"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:layout_alignParentTop="true"/>
+
+    <Button
+        android:id="@+id/buttonAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hinzufügen"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/editTextTask"/>
+
+
+
+    <!-- Placeholder tasks for RecyclerView -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <CheckBox
+        android:id="@+id/taskCheckbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:checked="true"
+        android:text="EE Hausaufgaben machen"
+        android:textColor="#000000" />
+
+    <CheckBox
+        android:id="@+id/taskCheckbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nachhilfeunterricht EUM vorbereiten"
+        android:layout_below="@id/taskCheckbox1"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp" />
+
+    <CheckBox
+        android:id="@+id/taskCheckbox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Das gesamte Skript in einer Nacht durchzugehen"
+        android:layout_below="@id/taskCheckbox2"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp" />
+
+    <CheckBox
+        android:id="@+id/taskCheckbox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Projektarbeit PPMM beginnen"
+        android:layout_below="@id/taskCheckbox3"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp" />
+
+    <!-- Additional tasks for illustration -->
+    <CheckBox
+        android:id="@+id/taskCheckbox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bibliotheksbücher zurückgeben (erledigt)"
+        android:layout_below="@id/taskCheckbox4"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:checked="true"
+        android:textColor="#000000" />
+
+</RelativeLayout>

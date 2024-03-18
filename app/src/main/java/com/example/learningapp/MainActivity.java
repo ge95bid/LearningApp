@@ -15,12 +15,22 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton imageButtonBuch = findViewById(R.id.buch);
         ImageButton imageButtonFrag = findViewById(R.id.frag);
+        ImageButton imageButtonTODO = findViewById(R.id.todo);
+
 
         imageButtonBuch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, NFCActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        imageButtonTODO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, TODOActivity.class);
+                startActivity(i);
             }
         });
 

@@ -8,45 +8,43 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <!--        app:layout_constraintEnd_toEndOf="@+id/background"-->
+
+
     <ImageButton
         android:id="@+id/buch"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintVertical_bias="0.4"
+        android:background="@null"
+        android:contentDescription="test"
+        android:src="@drawable/icon5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@null"
-        android:src="@drawable/icon5"
-        android:contentDescription="test"/>
+        app:layout_constraintVertical_bias="0.302" />
 
     <ImageButton
         android:id="@+id/frag"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintVertical_bias="0.4"
+        android:background="@null"
+        android:contentDescription="hallo"
+        android:src="@drawable/icon3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@null"
-        android:src="@drawable/icon3"
-        tools:layout_editor_absoluteX="249dp"
-        tools:layout_editor_absoluteY="206dp"
-        android:contentDescription="hallo"/>
-
-    <!--        app:layout_constraintEnd_toEndOf="@+id/background"-->
-
+        app:layout_constraintVertical_bias="0.302" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginEnd="80dp"
         android:text="Quiz"
         android:textColor="#102522"
         android:textSize="30dp"
@@ -67,6 +65,33 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buch" />
+
+    <ImageButton
+        android:id="@+id/todo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:src="@drawable/icons_11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:text="To-Do List"
+        android:textAlignment="center"
+        android:textColor="#102522"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo" />/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,15 +18,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.learningapp.Quiztemplate;
-import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
 
 public class ThirdActivity extends AppCompatActivity {
     Intent i;
     String name;
+    private Button randomQuizButton;
     Button reset;
     private String PREFS_NAME = "prefs";
     private String BUTTON_STATE_KEY_PREFIX = "button_state_";
@@ -41,6 +39,21 @@ public class ThirdActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+
+        //syrine was here
+        randomQuizButton = findViewById(R.id.randomquiz);
+         randomQuizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this, RandomIntro.class);
+                intent.putExtra("Modul", name);
+                startActivity(intent);
+            }
+        });
+        ///syrine bis here
+
+
         int modulenumber = (int) getIntent().getIntExtra("Moduln",0);
         name = (String) getIntent().getStringExtra("Modul");
         PREFS_NAME = PREFS_NAME + "_" + name;
@@ -49,19 +62,6 @@ public class ThirdActivity extends AppCompatActivity {
 
         TextView modul = findViewById(R.id.thirdbutton);
         modul.setText(name);
-
-
-        Button randomQuizButton = findViewById(com.example.learningapp.R.id.randomquiz);
-
-        randomQuizButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ThirdActivity.this, RandomQuizActivity.class);
-                // Pass the subject name (Modul) to the RandomQuizActivity
-                intent.putExtra("Modul", name);
-                startActivity(intent);
-            }
-        });
 
 
         //loadQuestions();
@@ -208,7 +208,7 @@ public class ThirdActivity extends AppCompatActivity {
     public void createQuestionDialog()
     {
         LayoutInflater inflater = getLayoutInflater();
-        View alertLayout = inflater.inflate(R.layout.dialog, null);
+        View alertLayout = inflater.inflate(R.layout.dialogq, null);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("New Question");
         alert.setView(alertLayout);
@@ -346,7 +346,7 @@ public class ThirdActivity extends AppCompatActivity {
     public void editButtonQuestion(int number)
     {
         LayoutInflater inflater = getLayoutInflater();
-        View alertLayout = inflater.inflate(R.layout.dialog, null);
+        View alertLayout = inflater.inflate(R.layout.dialogq, null);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Edit Question");
         alert.setView(alertLayout);
