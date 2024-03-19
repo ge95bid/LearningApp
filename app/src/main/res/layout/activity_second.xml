@@ -44,7 +44,7 @@
         app:chipSpacing="16dp" >
 
 
-        <!--<com.google.android.material.chip.Chip
+        <com.google.android.material.chip.Chip
             android:id="@+id/analysis1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             android:textAlignment="center"
             android:padding="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
--->
+
     </com.google.android.material.chip.ChipGroup>
 </ScrollView>
 </RelativeLayout>

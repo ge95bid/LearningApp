@@ -1,4 +1,5 @@
 package com.example.learningapp;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,14 +9,16 @@ public class Question implements Parcelable {
     private String optionB;
     private String optionC;
     private String optionD;
+    private int correctAnswerIndex;
 
     // Constructor
-    public Question(String question, String optionA, String optionB, String optionC, String optionD) {
+    public Question(String question, String optionA, String optionB, String optionC, String optionD, int correctAnswerIndex) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
+        this.correctAnswerIndex = correctAnswerIndex;
     }
 
     // Parcelable implementation
@@ -25,6 +28,7 @@ public class Question implements Parcelable {
         optionB = in.readString();
         optionC = in.readString();
         optionD = in.readString();
+        correctAnswerIndex = in.readInt();
     }
 
     @Override
@@ -34,6 +38,7 @@ public class Question implements Parcelable {
         dest.writeString(optionB);
         dest.writeString(optionC);
         dest.writeString(optionD);
+        dest.writeInt(correctAnswerIndex);
     }
 
     @Override
@@ -72,5 +77,9 @@ public class Question implements Parcelable {
 
     public String getOptionD() {
         return optionD;
+    }
+
+    public int getCorrectAnswerIndex() {
+        return correctAnswerIndex;
     }
 }
