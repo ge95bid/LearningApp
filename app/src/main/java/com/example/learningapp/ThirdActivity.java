@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -296,6 +297,7 @@ public class ThirdActivity extends AppCompatActivity {
     {
         GridLayout layout = findViewById(R.id.gridLayout);
 
+
         Button button = new Button(this);
         button.setId(number);
         button.setText(text);
@@ -307,6 +309,7 @@ public class ThirdActivity extends AppCompatActivity {
         button.setTextColor(getResources().getColor(R.color.white));
         button.setAllCaps(false);
         button.setHeight(175);
+        button.setWidth(300);
         //button.setBackground(getResources().getDrawable(R.drawable.rounded_corner));
 
         GradientDrawable shape =  new GradientDrawable();
@@ -315,7 +318,10 @@ public class ThirdActivity extends AppCompatActivity {
         button.setBackground(shape);
 
         GridLayout.LayoutParams params1 = new GridLayout.LayoutParams();
-        params1.setMargins(10, 10, 10, 10);
+        params1.setMargins(10, 10, 20, 10);
+        params1.width = GridLayout.LayoutParams.WRAP_CONTENT;
+        params1.height = GridLayout.LayoutParams.WRAP_CONTENT;
+        params1.setGravity(Gravity.FILL_HORIZONTAL);
         layout.addView(button,params1);
 
 
