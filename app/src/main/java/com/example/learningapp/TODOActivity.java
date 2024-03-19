@@ -1,12 +1,15 @@
 package com.example.learningapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +20,6 @@ public class TODOActivity extends AppCompatActivity implements TaskAdapter.OnTas
     private List<Task> tasks;
     private EditText editTextTask;
     private Button buttonAddTask;
-    android.widget.CheckBox[] boxes = new android.widget.CheckBox[50];
     String[] taskname = new String[50];
 
     @Override
@@ -32,13 +34,10 @@ public class TODOActivity extends AppCompatActivity implements TaskAdapter.OnTas
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         tasks = new ArrayList<>();
-        tasks.add(new Task("EE Hausaufgaben machen", true));
-        tasks.add(new Task("Nachhilfeunterricht EUM vorbereiten", false));
-        tasks.add(new Task("Das gesamte Skript in einer Nacht durchzugehen", false));
-        tasks.add(new Task("Projektarbeit PPMM beginnen", false));
-        tasks.add(new Task("Bibliotheksbücher zurückgeben", true));
 
-        adapter = new TaskAdapter(tasks, this); // Pass 'this' as the long click listener
+        loadModules(); // Load saved tasks from SharedPreferences
+
+        adapter = new TaskAdapter(tasks, this);
         recyclerView.setAdapter(adapter);
 
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
@@ -51,44 +50,38 @@ public class TODOActivity extends AppCompatActivity implements TaskAdapter.OnTas
                     adapter.notifyItemInserted(tasks.size() - 1);
                     recyclerView.smoothScrollToPosition(tasks.size() - 1);
                     editTextTask.setText("");
+                    saveModuletodo(); // Save the added task
                 }
             }
         });
     }
 
-    // Implement the onTaskLongClick method
     @Override
     public void onTaskLongClick(int position) {
         tasks.remove(position);
         adapter.notifyItemRemoved(position);
+        saveModuletodo(); // Save the updated task list after removing a task
     }
 
-
-
-    public void saveModuletodo()
-    {
-        android.content.SharedPreferences sharedPreferences = getSharedPreferences("Modules", MODE_PRIVATE);
-        android.content.SharedPreferences.Editor editor = sharedPreferences.edit();
-        for(int i = 0; i < boxes.length; i++)
-        {
-            if(boxes[i] != null)
-            {
-                editor.putString("Modules" + i, boxes[i].getText().toString());
-            }
+    public void saveModuletodo() {
+        SharedPreferences sharedPreferences = getSharedPreferences("To-Do", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear(); // Clear existing tasks before saving
+        for (int i = 0; i < tasks.size(); i++) {
+            editor.putString("To-Do" + i, tasks.get(i).getName());
         }
         editor.apply();
     }
-    public void loadModules()
-    {
-        android.content.SharedPreferences sharedPreferences = getSharedPreferences("Modules", MODE_PRIVATE);
-        for(int i = 0; i < boxes.length; i++)
-        {
-            if(sharedPreferences.contains("Module" + i))
-            {
-                taskname[i] = sharedPreferences.getString("Module" + i, "");
+
+    public void loadModules() {
+        SharedPreferences sharedPreferences = getSharedPreferences("To-Do", MODE_PRIVATE);
+        tasks.clear(); // Clear existing tasks before loading
+        for (int i = 0; i < taskname.length; i++) {
+            if (sharedPreferences.contains("To-Do" + i)) {
+                taskname[i] = sharedPreferences.getString("To-Do" + i, "");
+                tasks.add(new Task(taskname[i], false)); // Assuming all loaded tasks are not completed
             }
         }
+        adapter.notifyDataSetChanged();
     }
-
-
 }

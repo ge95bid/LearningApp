@@ -1,74 +1,103 @@
-
-package com.example.learningapp;public class RandomQuizActivity;
 package com.example.learningapp;
-
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-import androidx.appcompat.app.AppCompatActivity;
-
 public class RandomQuizActivity extends AppCompatActivity {
-    // Views
-    TextView questionTextView;
-    Button option1Button;
-    Button option2Button;
-    Button option3Button;
-    Button option4Button;
+    private RandomQuizTemplate randomQuizTemplate;
+    private TextView questionTextView;
+    private RadioGroup optionsRadioGroup;
+    private Button nextButton;
+    private Button submitButton;
 
-
-    // List to store random questions
-    public List<Quiztemplate> randomQuestions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.random_quiz);
+
         // Initialize views
         questionTextView = findViewById(R.id.question_text_view);
-         option1Button = findViewById(R.id.option1_button);
-         option2Button = findViewById(R.id.option2_button);
-         option3Button = findViewById(R.id.option3_button);
-         option4Button = findViewById(R.id.option4_button);
-        Button nextButton = findViewById(R.id.next_button);
-        Button submitButton = findViewById(R.id.submit_button);
-        RadioGroup optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
+        optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
+        nextButton = findViewById(R.id.next_button);
+        submitButton = findViewById(R.id.submit_button);
 
-        // Retrieve the ArrayList<Quiztemplate> from the intent extras
-        ArrayList<Parcelable> parcelableArrayList = getIntent().getParcelableArrayListExtra("RandomQuestions");
+        // Create a list of all questions
+        List<Question> allQuestions = new ArrayList<>();
+        // Add questions here...
+        allQuestions.add(new Question("Was ist die Definition einer stetigen Funktion?", "Eine Funktion ohne Sprünge.", "Eine Funktion ohne Nullstellen.", "Eine Funktion ohne Extremstellen.", "Eine Funktion ohne Unstetigkeitsstellen.", 0));
+        allQuestions.add(new Question("Welche Bedingung muss erfüllt sein, damit eine Funktion an einer Stelle differenzierbar ist?", "Stetigkeit", "Stetigkeit und Unstetigkeit", "Grenzwertexistenz", "Stetigkeit und Differenzierbarkeit", 3));
+        allQuestions.add(new Question("Was ist der Hauptsatz der Differential- und Integralrechnung?", "Der Fläche unter dem Graphen.", "Fläche über dem Graphen.", "Umkehrung der Integration.", "Dem Integral der Funktion.", 3));
+        allQuestions.add(new Question("Wie lautet die Definition des Grenzwerts einer Funktion?", "Der Wert, den die Funktion an einer Stelle annimmt.", "Der größte Funktionswert.", "Die kleinste Funktionsstelle.", "Die Annäherung der Funktionswerte an einen bestimmten Punkt.", 0));
+        allQuestions.add(new Question("Welche Funktion ist auf dem Intervall [0, ∞) nicht beschränkt?", "sin(x)", "cos(x)", "e^x", "ln(x)", 3));
 
-        // Initialize the ArrayList to store Quiztemplate objects
-        randomQuestions = new ArrayList<>();
-
-        // Check if the ArrayList is not null and contains at least one question
-        if (parcelableArrayList != null && !parcelableArrayList.isEmpty()) {
-            // Iterate over each Parcelable object and cast them to Quiztemplate
-            for (android.os.Parcelable parcelable : parcelableArrayList) {
-                if (parcelable instanceof Quiztemplate) {
-                    randomQuestions.add((Quiztemplate) parcelable);
-                }
-            }
-        }
+        // Create a random quiz template
+        randomQuizTemplate = new RandomQuizTemplate(allQuestions);
 
         // Display the first question
-        displayQuestion(randomQuestions.get(0));
+        displayQuestion(randomQuizTemplate.getCurrentQuestion());
     }
 
-    // Method to display a question
-    private void displayQuestion(Quiztemplate question) {
-        // Set the question text
-        questionTextView.setText(question.getQuestiontext());
+    private void displayQuestion(Question question) {
+        if (question != null) {
+            // Set the question text
+            questionTextView.setText(question.getQuestion());
 
-        // Set the options text for each radio button
-        option1Button.setText(question.getOption()[0]);
-        option2Button.setText(question.getOption()[1]);
-        option3Button.setText(question.getOption()[2]);
-        option4Button.setText(question.getOption()[3]);
+            // Clear existing radio buttons
+            optionsRadioGroup.removeAllViews();
+
+            // Add options as radio buttons
+            String[] options = {question.getOptionA(), question.getOptionB(), question.getOptionC(), question.getOptionD()};
+            for (int i = 0; i < options.length; i++) {
+                RadioButton radioButton = new RadioButton(this);
+                radioButton.setId(i);
+                radioButton.setText(options[i]); // Set the text of each radio button to the respective option
+                optionsRadioGroup.addView(radioButton);
+            }
+
+            // Enable/disable buttons based on question index
+            nextButton.setEnabled(randomQuizTemplate.hasNextQuestion());
+            submitButton.setEnabled(!randomQuizTemplate.hasNextQuestion());
+        }
     }
+
+
+
+    public void onNextButtonClick(View view) {
+        int selectedOptionIndex = optionsRadioGroup.getCheckedRadioButtonId();
+        if (selectedOptionIndex != -1) {
+            randomQuizTemplate.answerCurrentQuestion(selectedOptionIndex);
+            displayQuestion(randomQuizTemplate.getCurrentQuestion());
+        } else {
+            Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onSubmitButtonClick(View view) {
+        int selectedOptionIndex = optionsRadioGroup.getCheckedRadioButtonId();
+        if (selectedOptionIndex != -1) {
+            randomQuizTemplate.answerCurrentQuestion(selectedOptionIndex);
+            showQuizResult();
+        } else {
+            Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showQuizResult() {
+        int correctAnswers = randomQuizTemplate.getCorrectAnswers();
+        int totalQuestions = randomQuizTemplate.getTotalQuestions();
+        Toast.makeText(this, "You got " + correctAnswers + " out of " + totalQuestions + " questions correct!", Toast.LENGTH_LONG).show();
+    }
+
+
+
+
 }
