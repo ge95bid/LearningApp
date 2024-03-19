@@ -1,6 +1,13 @@
 package com.example.learningapp;
 
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -8,6 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RandomQuizActivity extends AppCompatActivity {
     // Views
+    TextView questionTextView;
+    Button option1Button;
+    Button option2Button;
+    Button option3Button;
+    Button option4Button;
 
 
     // List to store random questions
@@ -18,16 +30,16 @@ public class RandomQuizActivity extends AppCompatActivity {
         setContentView(R.layout.random_quiz);
         // Initialize views
         questionTextView = findViewById(R.id.question_text_view);
-        option1Button = findViewById(R.id.option1_button);
-        option2Button = findViewById(R.id.option2_button);
-        option3Button = findViewById(R.id.option3_button);
-        option4Button = findViewById(R.id.option4_button);
-        nextButton = findViewById(R.id.next_button);
-        submitButton = findViewById(R.id.submit_button);
-        optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
+         option1Button = findViewById(R.id.option1_button);
+         option2Button = findViewById(R.id.option2_button);
+         option3Button = findViewById(R.id.option3_button);
+         option4Button = findViewById(R.id.option4_button);
+        Button nextButton = findViewById(R.id.next_button);
+        Button submitButton = findViewById(R.id.submit_button);
+        RadioGroup optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
 
         // Retrieve the ArrayList<Quiztemplate> from the intent extras
-        ArrayList<android.os.Parcelable> parcelableArrayList = getIntent().getParcelableArrayListExtra("RandomQuestions");
+        ArrayList<Parcelable> parcelableArrayList = getIntent().getParcelableArrayListExtra("RandomQuestions");
 
         // Initialize the ArrayList to store Quiztemplate objects
         randomQuestions = new ArrayList<>();
