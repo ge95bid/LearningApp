@@ -44,6 +44,16 @@ public class SecondActivity extends AppCompatActivity {
 
         loadModules();
 
+        if(chipNames[0] == null)
+        {
+            chipNames[0] = "Analysis";
+            chipNames[1] = "BWL";
+            chipNames[2] = "Informatik";
+            chipNames[3] = "Maschinenbau";
+            chipNames[4] = "Wirtschaftsingenieurwesen";
+            chipNames[5] = "Wirtschaftsinformatik";
+        }
+
         /*Chip chip1 = findViewById(R.id.analysis1);
         Chip chip2 = findViewById(R.id.bwl);
         Chip chip3 = findViewById(R.id.info);
@@ -291,14 +301,29 @@ public class SecondActivity extends AppCompatActivity {
         View alertView = getLayoutInflater().inflate(R.layout.addmodule_dialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(SecondActivity.this);
         builder.setView(alertView);
+        String name = chip.getText().toString();
 
         builder.setPositiveButton("Edit", (dialog, which) -> {
 
             EditText edit = alertView.findViewById(R.id.edittext);
             String modul = edit.getText().toString();
+            for(int i=0;i<chipNames.length;i++)
+            {
+                if(chipNames[i] != null)
+                {
+                    if(chipNames[i].equals(name))
+                    {
+                        chipNames[i] = modul;
+                    }
+                }
+            }
+
             chip.setText(modul);
             saveModules();
         });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
     public void deleteQuestions()
