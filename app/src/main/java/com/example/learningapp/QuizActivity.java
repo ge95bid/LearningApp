@@ -93,7 +93,12 @@ public class QuizActivity extends AppCompatActivity {
                             break;
                     }
 
-                    finish();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    }, 2000);
 
                 }
             }
